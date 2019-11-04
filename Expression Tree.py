@@ -27,10 +27,7 @@ def inorder(t):
         print(t.value)
         inorder(t.right)
 
-    # Returns root of constructed tree for
-
-
-# given postfix expression
+# Returns root of constructed tree for given postfix expression
 def constructTree(postfix):
     stack = []
 
@@ -57,7 +54,7 @@ def constructTree(postfix):
             # Add this subexpression to stack
             stack.append(t)
 
-        # Only element will be the root of expression tree
+    # Only element will be the root of expression tree
     t = stack.pop()
 
     return t
