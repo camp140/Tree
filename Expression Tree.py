@@ -13,8 +13,7 @@ class Et:
 # A utility function to check if 'c'
 # is an operator
 def isOperator(c):
-    if (c == '+' or c == '-' or c == '*'
-            or c == '/' or c == '^'):
+    if (c == '+' or c == '-' or c == '*' or c == '/' or c == '^'):
         return True
     else:
         return False
