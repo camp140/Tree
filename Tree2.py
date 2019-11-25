@@ -1,17 +1,11 @@
 class node:
     def __init__(self, data, left=None, right=None):
         self.data = data
-        if left is None:
-            self.left = None
-        else:
-            self.left = left
-        if right is None:
-            self.right = None
-        else:
-            self.right = right
+        self.left = None if left is None else left
+        self.right = None if right is None else right
 
-    # def __str__(self):
-    #     return str(self.data)
+    def __str__(self):
+        return str(self.data)
 
 
 def inOrder(r):
@@ -46,7 +40,7 @@ def add(r, data):  # recursive add
 def printSideWay(r, level):
     if r:
         printSideWay(r.right, level + 1)
-        print(' ' * 3 * level, r.data)
+        print('   ' * level, r.data)
         printSideWay(r.left, level + 1)
 
 
@@ -69,7 +63,7 @@ def path(r, d):
         if r is None:
             return None
         elif r.data != d:
-            print(r.data, end = ' ')
+            print(r.data, end=' ')
             if d < r.data:
                 path(r.left, d)
             else:
@@ -106,23 +100,23 @@ def depth(r, d, dep=0):
 
 
 l = [14, 4, 9, 7, 15, 3, 18, 16, 20, 5, 16]
-print('intput: ', l)
+print('input: ', l)
 
 r = None
 for ele in l:
     r = addi(r, ele)
 
-print('inorder:', end = ' ')
+print('inorder:', end=' ')
 inOrder(r)
 print()
 
 print('printSideWay:')
 printSideWay(r, 0)
 
-print('height of ', r.data, '=', height(r));
+print('height of ', r.data, '=', height(r))
 
 d = 14
-print('path : ', d, '=', end = ' ')
+print('path : ', d, '=', end=' ')
 path(r, d)
 
 d = 14
