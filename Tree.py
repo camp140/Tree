@@ -133,7 +133,9 @@ class BST:
                 root.left = BST._delete(root.left, data)
             elif data > root.data:
                 root.right = BST._delete(root.right, data)
+            #found specified Node:
             else:
+                #Node with one or no child:
                 if root.right is None:
                     temp = root.left
                     root = None
@@ -143,9 +145,11 @@ class BST:
                     root = None
                     return temp
 
-                temp = BST.getSuccessor(root.right)
-                root.data = temp.data
-                root.right = BST._delete(root.right, temp.data)
+                #Node with two children:
+                else:
+                    temp = BST.getSuccessor(root.right) #smallest right
+                    root.data = temp.data #copy here
+                    root.right = BST._delete(root.right, temp.data) #delete copied node
             return root
 
     def getSuccessor(root):
